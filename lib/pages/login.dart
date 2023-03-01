@@ -12,12 +12,12 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   String Email = '';
   String Password = '';
-
   TextEditingController? email;
   TextEditingController? password;
 
   // controllers
   late TextEditingController _controller;
+
 
   @override
   void initState() {
@@ -31,11 +31,9 @@ class _LoginState extends State<Login> {
     super.dispose();
     _controller?.dispose();
     password?.dispose();
-    // email?.dispose();
 
-
-    // price?.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +47,13 @@ class _LoginState extends State<Login> {
           child: Container(
             child: Column(
               children: [
-                Text('Sgin In', style: TextStyle(fontSize: 20, fontWeight:  FontWeight.w600, ),),
+                const Text(
+                  'Sgin In',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8, 15, 8, 5),
                   child: TextFormField(
@@ -62,8 +66,8 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.fromLTRB(8, 15, 8, 5),
                   child: TextFormField(
                     controller: password,
-                    decoration:
-                    InputDecoration(hintText: 'password', labelText: 'Password'),
+                    decoration: InputDecoration(
+                        hintText: 'password', labelText: 'Password'),
                   ),
                 ),
                 ElevatedButton(
@@ -80,26 +84,26 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: GestureDetector(
-                    child: Text('Create Account', style: TextStyle(),),
+                    child: Text(
+                      'Create Account',
+                      style: TextStyle(),
+                    ),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Register()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Register()));
                     },
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: GestureDetector(
-                    child: Text('Home Page', style: TextStyle(),),
+                    child: Text(
+                      'Home Page',
+                      style: TextStyle(),
+                    ),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Home()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
                     },
                   ),
                 ),
@@ -107,7 +111,6 @@ class _LoginState extends State<Login> {
             ),
           ),
         ),
-
       ),
     );
   }

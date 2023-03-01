@@ -29,20 +29,45 @@ class _HomeState extends State<Home> {
       drawer: Drawer(
         child: Column(
           children: [
-            Icon(Icons.emoji_people_rounded
-            , ),
-
-            IconButton(
-                onPressed: () {
-                  _scaffoldKey.currentState?.openDrawer();
-                },
-                icon: Icon(Icons.menu)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 15, 8, 0),
+              child: Image.network(
+                'https://st2.depositphotos.com/1104517/11965/v/950/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg',
+                height: 120,
+              ),
+            ),
+            const Text(
+              'User Name',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const Text(
+              'V number',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w400,
+              ),
+            )
           ],
         ),
       ),
       body: Container(
         child: Column(
-          children: [],
+          children: [
+            DropdownButton<String>(
+              items: <String>['A', 'B', 'C', 'D'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (_) {},
+            )
+
+          ],
         ),
       ),
     ));
